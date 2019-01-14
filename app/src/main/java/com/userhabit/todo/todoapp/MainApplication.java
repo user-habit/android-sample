@@ -53,6 +53,7 @@ public class MainApplication extends Application {
          * SDK 구동을 위한 API 호출
          * 자동 수집을 시작 합니다.
          **/
-        Userhabit.start(this, "dev_7e136d0e62cef582cc7f22b3108ee840ff798d59");
+        Userhabit.start(this, "dev_410b6692e8f7ad1fb6867145be2137621a88b819"); //real
+//        Userhabit.start(this, "dev_7e136d0e62cef582cc7f22b3108ee840ff798d59"); //dev
     }
 }
