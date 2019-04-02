@@ -48,8 +48,8 @@ dependencies {
      * init dependency userhabit
      **/
     //userhabit
-//    implementation'io.userhabit.service:userhabitsdk:1.1.9@aar'
-    implementation files('libs/userhabitsdk_1.1.10.aar')
+    implementation'io.userhabit.service:userhabitsdk:1.1.12@aar'
+//    implementation files('libs/userhabitsdk_1.1.10.aar')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
