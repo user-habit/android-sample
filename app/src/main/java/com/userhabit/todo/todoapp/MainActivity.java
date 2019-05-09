@@ -8,8 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.userhabit.todo.todoapp.ui.MoreFragment;
-import com.userhabit.todo.todoapp.ui.imageviewer.ImageViewerFragment;
 import com.userhabit.todo.todoapp.ui.WebviewFragment;
+import com.userhabit.todo.todoapp.ui.picture.PictureListFragment;
 
 import io.userhabit.service.Userhabit;
 
@@ -30,26 +30,7 @@ public class MainActivity extends AppCompatActivity {
          */
         Userhabit.setViewPager(viewpager);
     }
-
-
-    /**
-     * API 9 이상
-     * 수동으로 한 화면씩 수집하고 싶으시다면
-     * 아래 API 호출 권고
-     **/
-   /* @Override
-    protected void onStart() {
-        super.onStart();
-        Userhabit.activityStart(this);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Userhabit.activityStop(this);
-    }*/
 }
-
 
 
 class ViewPagerAdapater extends FragmentStatePagerAdapter {
@@ -64,7 +45,7 @@ class ViewPagerAdapater extends FragmentStatePagerAdapter {
 
         switch (i) {
             case 0:
-                fragment = ImageViewerFragment.newInstance();
+                fragment = PictureListFragment.newInstance();
                 break;
             case 1:
                 fragment = WebviewFragment.newInstance();
