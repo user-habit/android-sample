@@ -2,9 +2,8 @@ package com.userhabit.todo.todoapp.data;
 
 import android.arch.lifecycle.LiveData;
 
+import com.userhabit.todo.todoapp.data.photo.PhotoDetail;
 import com.userhabit.todo.todoapp.data.photo.Photos;
-
-import retrofit2.Call;
 
 public interface PictureDataSource {
     void getPhotos(
@@ -14,9 +13,11 @@ public interface PictureDataSource {
             int perPage
     );
 
-    Call<PhotoDetailResponse> getPhoto(
+    void getPictureDetail(
             String photoId
     );
 
     LiveData<Photos> getPhotosObserve();
+
+    LiveData<PhotoDetail> getPictureDetailObserve();
 }

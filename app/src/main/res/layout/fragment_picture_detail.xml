@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="photo"
+            type="com.userhabit.todo.todoapp.data.photo.PhotoDetail" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/ivCancel"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/ic_cancel_black_24dp"
+            app:layout_constraintEnd_toStartOf="@+id/ivthumbnail"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/ivthumbnail"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:photo="@{photo.thumbnailUrl}"
+            app:layout_constraintEnd_toStartOf="@+id/tvOwner"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ivCancel"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvOwner"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="20sp"
+            android:text="@{photo.owner.username}"
+            android:textAlignment="viewStart"
+            android:paddingTop="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/ivWeb"
+            app:layout_constraintStart_toEndOf="@+id/ivthumbnail"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/ivWeb"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/ic_date_range_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvOwner"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="ivCancel, ivthumbnail, tvOwner, ivWeb" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/ivContentPhoto"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier"
+            app:photo="@{photo.photoUrl}" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvContentTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivContentPhoto" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvContentDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+            android:text="@{photo.dates.taken}"
+            app:layout_constraintEnd_toStartOf="@+id/tvContentCommentCount"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvContentTitle" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvContentCommentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:drawableLeft="@drawable/ic_comment_black_24dp"
+            android:text="@{String.valueOf(photo.comments._content)}"
+            app:layout_constraintEnd_toStartOf="@+id/tvContentViewerCount"
+            app:layout_constraintStart_toEndOf="@+id/tvContentDate"
+            app:layout_constraintTop_toBottomOf="@+id/tvContentTitle" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvContentViewerCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_remove_red_eye_black_24dp"
+            android:text="@{String.valueOf(photo.dates.views)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvContentCommentCount"
+            app:layout_constraintTop_toBottomOf="@+id/tvContentTitle" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvContentDate" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvContentComment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@{photo.title._content}"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/space" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
