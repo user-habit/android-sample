@@ -1,5 +1,6 @@
 package com.userhabit.todo.todoapp.ui.picture;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.util.DiffUtil;
@@ -11,13 +12,17 @@ import android.view.ViewGroup;
 
 import com.userhabit.todo.todoapp.data.photo.Photo;
 import com.userhabit.todo.todoapp.databinding.ItemPictureBinding;
+import com.userhabit.todo.todoapp.ui.detail.PictureDetailActivity;
+import com.userhabit.todo.todoapp.util.Extentions;
 
 public class PictureRecyclerAdapter extends ListAdapter<Photo, PictureRecyclerAdapter.PictureViewHolder> {
 
-    View.OnClickListener clickListener = new View.OnClickListener() {
+    OnPictureClickListener clickListener = new OnPictureClickListener() {
         @Override
-        public void onClick(View v) {
-            Log.d("cylee", "picture item click");
+        public void onClick(View view, String pictureId) {
+            Log.d("cylee", "picture item id : " + pictureId);
+            //Intent intent new Intent(view.getContext(), )
+            Extentions.startActivity(view.getContext(), Extentions.provideIntent(view.getContext(), PictureDetailActivity.class, pictureId));
         }
     };
 
@@ -52,7 +57,7 @@ public class PictureRecyclerAdapter extends ListAdapter<Photo, PictureRecyclerAd
             this.binding = binding;
         }
 
-        public void bind(Photo photo, View.OnClickListener clickListener) {
+        public void bind(Photo photo, OnPictureClickListener clickListener) {
             binding.setPhoto(photo);
             binding.setClickListener(clickListener);
             binding.executePendingBindings();

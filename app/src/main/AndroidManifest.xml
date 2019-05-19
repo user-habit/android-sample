@@ -32,6 +32,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.detail.PictureDetailActivity" />
+
         <!-- Userhabit Api Key Registration -->
         <!--<meta-data;ㅣ
             android:name="userhabitApiKey"

@@ -51,9 +51,6 @@ class ViewPagerAdapater extends FragmentStatePagerAdapter {
                 fragment = WebviewFragment.newInstance();
                 break;
             case 2:
-                /**
-                 * todoSomeThing..
-                 **/
                 fragment = MoreFragment.newInstance();
         }
         return fragment;
