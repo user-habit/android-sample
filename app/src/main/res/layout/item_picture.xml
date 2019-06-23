@@ -5,12 +5,15 @@
     <data>
         <variable
             name="photo"
-            type="com.userhabit.todo.todoapp.data.photo.Photo"/>
-
+            type="com.userhabit.todo.todoapp.data.photo.Photo" />
         <variable
-            name="viewmodel"
-            type="com.userhabit.todo.todoapp.ui.imageviewer.ImageViewerViewModel" />
+            name="clickListener"
+            type="com.userhabit.todo.todoapp.ui.picture.OnPictureClickListener" />
+        <!--<variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />-->
     </data>
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,8 +22,8 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{photo.title}"
             android:singleLine="true"
+            android:text="@{photo.title}"
             app:layout_constraintBottom_toTopOf="@+id/ivPhoto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,11 +35,11 @@
             android:layout_height="wrap_content"
             android:background="@drawable/ic_launcher_background"
             android:scaleType="fitXY"
-            android:onClick="@{ () -> viewmodel.photoClicked(photo.id)}"
-            app:photo="@{photo.photoUrl}"
+            android:onClick="@{(view) -> clickListener.onClick(view, photo.id)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:photo="@{photo.photoUrl}" />
     </android.support.constraint.ConstraintLayout>
 </layout>
