@@ -1,17 +1,23 @@
 package com.userhabit.todo.todoapp.ui.photodetail;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.Fragment;
+
+import com.userhabit.todo.todoapp.BR;
 import com.userhabit.todo.todoapp.R;
 import com.userhabit.todo.todoapp.data.PhotoRepository;
 import com.userhabit.todo.todoapp.databinding.FragmentPhotodetailBinding;
+import com.userhabit.todo.todoapp.databinding.FragmentPhotodetailBindingImpl;
 
 import io.userhabit.service.Userhabit;
 
@@ -29,13 +35,12 @@ public class PhotoDetailFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_photodetail, container, false);
-        FragmentPhotodetailBinding binding = FragmentPhotodetailBinding.bind(view);
+        ViewDataBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_photodetail, container, false);
         photoDetailViewModel = new PhotoDetailViewModel(
                 new PhotoRepository(),
                 binding
         );
-        binding.setViewmodel(photoDetailViewModel);
+        binding.setVariable(BR.viewmodel, photoDetailViewModel);
         return binding.getRoot();
     }
 

@@ -1,7 +1,7 @@
 package com.userhabit.todo.todoapp.ui.navigator;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import com.userhabit.todo.todoapp.R;
 import com.userhabit.todo.todoapp.ui.photodetail.PhotoDetailFragment;

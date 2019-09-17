@@ -12,12 +12,12 @@
             type="com.userhabit.todo.todoapp.ui.photodetail.PhotoDetailViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivCancel"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivthumbnail"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -37,7 +37,7 @@
             app:layout_constraintStart_toEndOf="@+id/ivCancel"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvOwner"
             android:layout_width="0dp"
             android:layout_height="48dp"
@@ -51,7 +51,7 @@
             app:layout_constraintStart_toEndOf="@+id/ivthumbnail"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivWeb"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -60,14 +60,14 @@
             app:layout_constraintStart_toEndOf="@+id/tvOwner"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.constraint.Barrier
+        <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="ivCancel, ivthumbnail, tvOwner, ivWeb" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivContentPhoto"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -78,7 +78,7 @@
             app:layout_constraintTop_toBottomOf="@+id/barrier"
             app:photo="@{photo.photoUrl}" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvContentTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ivContentPhoto" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvContentDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvContentTitle" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvContentCommentCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
             app:layout_constraintStart_toEndOf="@+id/tvContentDate"
             app:layout_constraintTop_toBottomOf="@+id/tvContentTitle" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvContentViewerCount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/tvContentDate" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvContentComment"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -137,5 +137,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/space" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

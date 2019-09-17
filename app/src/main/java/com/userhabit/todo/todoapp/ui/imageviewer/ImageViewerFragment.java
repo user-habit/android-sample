@@ -1,20 +1,23 @@
 package com.userhabit.todo.todoapp.ui.imageviewer;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.userhabit.todo.todoapp.BR;
 import com.userhabit.todo.todoapp.R;
-import com.userhabit.todo.todoapp.data.photo.Photo;
 import com.userhabit.todo.todoapp.data.PhotoRepository;
-import com.userhabit.todo.todoapp.databinding.ItemImageBinding;
+import com.userhabit.todo.todoapp.data.photo.Photo;
 import com.userhabit.todo.todoapp.ui.navigator.FragmentNavigator;
 import com.userhabit.todo.todoapp.ui.navigator.Navigator;
 
@@ -102,15 +105,15 @@ public class ImageViewerFragment extends Fragment {
 
 class ImageViewHolder extends RecyclerView.ViewHolder {
 
-    ItemImageBinding binding;
+    ViewDataBinding binding;
 
-    public ImageViewHolder(@NonNull Object binding) {
-        super(((ItemImageBinding) binding).getRoot());
-        this.binding = (ItemImageBinding) binding;
+    public ImageViewHolder(@NonNull ViewDataBinding binding) {
+        super(binding.getRoot());
+        this.binding = binding;
     }
 
     public void onBind(Photo photo) {
-        binding.setPhoto(photo);
+        //binding.setVariable(com.userhabit.todo.todoapp.BR, photo);
         binding.executePendingBindings();
     }
 }
@@ -127,8 +130,9 @@ class ImageRecyclerAdapater extends RecyclerView.Adapter<ImageViewHolder> implem
     @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        ItemImageBinding binding = ItemImageBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
-        binding.setViewmodel(imageViewerViewModel);
+        //ItemImageBinding binding = ItemImageBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
+        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.item_image, viewGroup, false);
+        binding.setVariable(BR.viewmodel, imageViewerViewModel);
         return new ImageViewHolder(binding);
     }
 
