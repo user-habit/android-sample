@@ -4,10 +4,10 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.userhabit.todo.todoapp"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 100
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -51,12 +51,7 @@ dependencies {
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
 
-    /**
-     * init dependency userhabit
-     **/
-    //userhabit
-//    implementation'io.userhabit.service:userhabitsdk:1.1.12@aar'
-    implementation files('libs/userhabitsdk_1.1.12.aar')
+    implementation'io.userhabit.service:userhabitsdk:1.2.3@aar'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
